@@ -1,7 +1,7 @@
 ---> Project Name – EmployWise Assignment
 
 
-A React-based User Management System that allows users to log in, view users, edit user details, delete users, and paginate through data. It uses React, TailwindCSS, Axios, and React Router for seamless navigation and API handling.
+.A React-based User Management System that allows users to log in, view users, edit user details, delete users, and paginate through data. It uses React, TailwindCSS, Axios, and React Router for seamless navigation and API handling.
 
 
 
@@ -10,19 +10,19 @@ A React-based User Management System that allows users to log in, view users, ed
 --->  Features
 
 
- User Authentication: Login with static credentials
+ .User Authentication: Login with static credentials
  
- User List: Fetch users from ReqRes API
+ .User List: Fetch users from ReqRes API
  
- Search Functionality: Find users by name or email
+ .Search Functionality: Find users by name or email
  
- Edit Users: Update user details
+ .Edit Users: Update user details
  
- Delete Users: Remove users from the list
+ .Delete Users: Remove users from the list
  
- Pagination: Navigate between user pages
+ .Pagination: Navigate between user pages
  
- Toast Notifications: Real-time feedback messages
+ .Toast Notifications: Real-time feedback messages
 
 
 
@@ -31,15 +31,15 @@ A React-based User Management System that allows users to log in, view users, ed
 --->  Tech Stack
 
 
-Frontend: React.js (Vite), Tailwind CSS
+.Frontend: React.js (Vite), Tailwind CSS
 
-Routing: React Router
+.Routing: React Router
 
-State Management: React Context API
+.State Management: React Context API
 
-API: ReqRes API
+.API: ReqRes API
 
-Notifications: React Toastify
+.Notifications: React Toastify
 
 
 
@@ -49,25 +49,25 @@ Notifications: React Toastify
 
 To set up the project locally, follow these steps:
 
-1️ Clone the Repository
+1️. Clone the Repository
 
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+ git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 
 
-2️  Navigate to the Project Folder
+2️.  Navigate to the Project Folder
 
 
 cd YOUR_REPO_NAME
 
 
-3️ Install Dependencies
+3️. Install Dependencies
 
 
 npm install
 
 
-4️ Start the Development Server
+4️. Start the Development Server
 
 npm run dev
 
@@ -75,14 +75,14 @@ The app will now be running at http://localhost:5173 🚀.
 
 ---> Authentication (Login)
 
-Users must log in using the following test credentials:
+.Users must log in using the following test credentials:
 
 
-Email: eve.holt@reqres.in
+.Email: eve.holt@reqres.in
 
-Password: cityslicka
+.Password: cityslicka
 
-This will generate a token stored in localStorage.
+.This will generate a token stored in localStorage.
 
 ---> Project Structure
 
