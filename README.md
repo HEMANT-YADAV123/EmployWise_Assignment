@@ -14,6 +14,7 @@ Notifications: React Toastify
 Routing: React Router
 
 => Features
+
 1. User Authentication: Login with static credentials
 2. User List: Fetch users from ReqRes API
 3. Search Functionality: Find users by name or email
@@ -23,37 +24,28 @@ Routing: React Router
 7. Toast Notifications: Real-time feedback messages
 
 => Installation & Setup
+
 1️. Clone the Repository
-sh
-Copy
-Edit
 
 git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_PROJECT.git
 
 cd YOUR_PROJECT
 
 2️. Install Dependencies
-sh
-Copy
-Edit
+
 npm install
+
 3️. Run the Project
-sh
-Copy
-Edit
 
 npm run dev
 
 The app will start on http://localhost:5173/.
 
 => How to Use
+
 Login:
 
 Use the credentials:
-
-sh
-Copy
-Edit
 
 Email: eve.holt@reqres.in  
 
@@ -76,6 +68,7 @@ Pagination:
 Navigate between pages using the Next and Prev buttons.
 
 => Assumptions & Considerations
+
 Authentication: The login uses ReqRes API, which is a mock API. The token is stored in localStorage for session persistence.
 
 User Deletion: Since ReqRes is a mock API, deleting a user only updates the UI and does not persist on the server.
