@@ -1,96 +1,168 @@
-User Management App 🚀
-A React.js application for managing users, with features like user listing, search, delete, and edit functionality using the ReqRes API.
+---> Project Name – EmployWise Assignment
 
-🔧 Tech Stack
-Frontend: React.js (Vite), Tailwind CSS
 
-State Management: React Context API
+A React-based User Management System that allows users to log in, view users, edit user details, delete users, and paginate through data. It uses React, TailwindCSS, Axios, and React Router for seamless navigation and API handling.
 
-API: ReqRes API
 
-Notifications: React Toastify
 
-Routing: React Router
 
-📌 Features
-✅ User Authentication: Login with static credentials
-✅ User List: Fetch users from ReqRes API
-✅ Search Functionality: Find users by name or email
-✅ Edit Users: Update user details
-✅ Delete Users: Remove users from the list
-✅ Pagination: Navigate between user pages
-✅ Toast Notifications: Real-time feedback messages
 
-📥 Installation & Setup
-1️⃣ Clone the Repository
-sh
-Copy
-Edit
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_PROJECT.git
-cd YOUR_PROJECT
-2️⃣ Install Dependencies
-sh
-Copy
-Edit
+----> Features
+. User Authentication (Login)
+. Fetching User Data from API
+. Searching Users by Name or Email
+. Editing User Details
+. Deleting Users
+. Pagination for Better UX
+. Toast Notifications using react-toastify
+
+
+
+---> Tech Stack
+
+Frontend: React, TailwindCSS, React Router
+
+State Management: React Hooks (useState, useEffect, useContext)
+
+API Handling: Axios
+
+UI Enhancements: React Toastify
+
+Backend API: ReqRes API (Fake API for testing)
+
+
+---> Installation & Setup
+
+
+To set up the project locally, follow these steps:
+
+1️ Clone the Repository
+
+
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+
+
+2️  Navigate to the Project Folder
+
+
+cd YOUR_REPO_NAME
+
+
+3️ Install Dependencies
+
+
 npm install
-3️⃣ Run the Project
-sh
-Copy
-Edit
+
+
+4️ Start the Development Server
+
 npm run dev
-The app will start on http://localhost:5173/.
 
-🚀 How to Use
-Login:
+The app will now be running at http://localhost:5173 🚀.
 
-Use the credentials:
+---> Authentication (Login)
 
-sh
-Copy
-Edit
-Email: eve.holt@reqres.in  
-Password: cityslicka  
-After successful login, you’ll be redirected to the Users page.
+Users must log in using the following test credentials:
 
-Users Page:
 
-View the list of users.
+Email: eve.holt@reqres.in
 
-Search for a user using the search bar.
+Password: cityslicka
 
-Edit user details.
+This will generate a token stored in localStorage.
 
-Delete a user (with confirmation).
+---> Project Structure
 
-Pagination:
 
-Navigate between pages using the Next and Prev buttons.
+ src
+ 
+ ┣  
+ ┣  pages
+ 
+ ┃ ┣  LoginForm.jsx
+ 
+ ┃ ┣  Users.jsx
+ 
+ ┃ ┣  UserContext.jsx
+   |- EditUser.jsx
+ |
+ ┣  App.jsx
+ 
+ ┣  main.jsx
 
-📌 Assumptions & Considerations
-Authentication: The login uses ReqRes API, which is a mock API. The token is stored in localStorage for session persistence.
 
-User Deletion: Since ReqRes is a mock API, deleting a user only updates the UI and does not persist on the server.
+  Code Snippets
 
-User Updates: The edit function only modifies the frontend state, as the ReqRes API does not support user updates.
 
-Error Handling: Includes toast notifications for API failures.
+---> Login Functionality
 
-🐛 Known Issues
+
+const handleLogin = async (e) => {
+
+  e.preventDefault();
+  
+  try {
+  
+    const response = await axios.post("https://reqres.in/api/login", {
+      email,
+      password,
+    });
+    localStorage.setItem("token", response.data.token);
+    navigate("/users");
+    toast.success("Login successful!");
+    
+  }
+  catch (err) {
+  
+    toast.error("Invalid credentials!");
+  }
+};
+
+---> Fetching Users with Pagination
+
+const fetchUsers = async () => {
+  try {
+  
+    const response = await axios.get(`https://reqres.in/api/users?page=${page}`);
+    setUsers(response.data.data);
+    setTotalPage(response.data.total_pages);
+  } catch (err) {
+  
+    toast.error("Failed to fetch users!");
+  }
+};
+
+---> Delete User Function
+
+
+const handleDelete = async (id) => {
+  try {
+  
+    await axios.delete(`https://reqres.in/api/users/${id}`);
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+    toast.success("User deleted successfully!");
+  } catch (err) {
+  
+    toast.error("Failed to delete user!");
+  }
+};
+
+---> Assumptions & Considerations
+
+- Authentication: The login uses ReqRes API. The token is stored in localStorage.
+  
+- User Deletion: Since ReqRes is a mock API, deleting a user only updates the UI.
+
+- User Updates: The edit function only modifies the frontend state.
+
+- Error Handling: Uses React Toastify for API failures.
+
+---> Known Issues
+
 User updates are not persistent due to the limitations of the mock API.
 
 Deleting a user does not actually remove it from the backend.
 
-📜 License
-This project is for learning purposes. Feel free to modify and use it.
 
-💡 Want to Contribute?
-Fork the repo
+Thanks for visiting ...
 
-Create a new branch
-
-Make your changes
-
-Submit a pull request
-
-📞 Contact
-If you have any questions, feel free to reach out via [your email or social media links].
