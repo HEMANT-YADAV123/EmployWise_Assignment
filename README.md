@@ -92,13 +92,17 @@ This will generate a token stored in localStorage.
  ┣  main.jsx
 
 
+
+
   Code Snippets
 
 
 ---> Login Functionality
 
 
-const handleLogin = async (e) => {
+
+const handleLogin = async (e) => 
+{
 
   e.preventDefault();
   
@@ -113,7 +117,8 @@ const handleLogin = async (e) => {
     toast.success("Login successful!");
     
   }
-  catch (err) {
+  catch (err) 
+  {
   
     toast.error("Invalid credentials!");
   }
@@ -121,13 +126,16 @@ const handleLogin = async (e) => {
 
 ---> Fetching Users with Pagination
 
-const fetchUsers = async () => {
+
+const fetchUsers = async () => 
+{
   try {
   
     const response = await axios.get(`https://reqres.in/api/users?page=${page}`);
     setUsers(response.data.data);
     setTotalPage(response.data.total_pages);
-  } catch (err) {
+  } catch (err) 
+  {
   
     toast.error("Failed to fetch users!");
   }
@@ -136,13 +144,16 @@ const fetchUsers = async () => {
 ---> Delete User Function
 
 
-const handleDelete = async (id) => {
+
+const handleDelete = async (id) => 
+{
   try {
   
     await axios.delete(`https://reqres.in/api/users/${id}`);
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
     toast.success("User deleted successfully!");
-  } catch (err) {
+  } catch (err) 
+  {
   
     toast.error("Failed to delete user!");
   }
