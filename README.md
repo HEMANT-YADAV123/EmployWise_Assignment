@@ -7,28 +7,41 @@ A React-based User Management System that allows users to log in, view users, ed
 
 
 
-----> Features
-. User Authentication (Login)
-. Fetching User Data from API
-. Searching Users by Name or Email
-. Editing User Details
-. Deleting Users
-. Pagination for Better UX
-. Toast Notifications using react-toastify
+--->  Features
+
+
+ User Authentication: Login with static credentials
+ 
+ User List: Fetch users from ReqRes API
+ 
+ Search Functionality: Find users by name or email
+ 
+ Edit Users: Update user details
+ 
+ Delete Users: Remove users from the list
+ 
+ Pagination: Navigate between user pages
+ 
+ Toast Notifications: Real-time feedback messages
 
 
 
----> Tech Stack
 
-Frontend: React, TailwindCSS, React Router
 
-State Management: React Hooks (useState, useEffect, useContext)
+--->  Tech Stack
 
-API Handling: Axios
 
-UI Enhancements: React Toastify
+Frontend: React.js (Vite), Tailwind CSS
 
-Backend API: ReqRes API (Fake API for testing)
+Routing: React Router
+
+State Management: React Context API
+
+API: ReqRes API
+
+Notifications: React Toastify
+
+
 
 
 ---> Installation & Setup
