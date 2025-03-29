@@ -1,27 +1,38 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const LoginForm = () => {
 
-  const [email, setEmail] = useState('eve.holt@reqres.in');
-  const [password, setPassword] = useState('cityslicka');
-  const [Error,setError] = useState('');
+  const [email, setEmail] = useState('eve.holt@reqres.in');//state for email
+  const [password, setPassword] = useState('cityslicka');//state for password
+  const [Error,setError] = useState('');//state for error
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();//make an variable for navigation
 
+//   function to handle login logic
   const handleLogin = async(e)=> {
     e.preventDefault();
     try {
-        const response = await axios.post("https://reqres.in/api/login", {
+        //send post request to the api endpoint
+        const response = await axios.post("https://reqres.in/api/login", { 
           email,
           password,
         });
+        // if login successfull store the token.
         localStorage.setItem("token", response.data.token);
-        navigate("/users");
+        //show success notification.
+        toast.success("Login Sucessfull",{ autoClose: 2000 })
+        setTimeout(() => {
+            navigate("/users");
+          }, 2000);
       } catch (err) {
         setError("Invalid credentials!");
-      }
+        toast.error("Invalid credentials!", { autoClose: 2000 });
+    }
     
   }
 
@@ -34,6 +45,7 @@ const LoginForm = () => {
           </svg>
         </div>
         <h2 className="text-lg font-semibold text-gray-700 mt-8 drop-shadow-2xl">Login Please</h2>
+        {/* login form */}
         <form 
         onSubmit={(e)=>{handleLogin(e)}}
         className="flex flex-col mt-4 gap-3">
@@ -57,9 +69,10 @@ const LoginForm = () => {
         </form>
         <div className="flex justify-center items-center text-xs text-gray-500 mt-2 gap-2">
           <Link 
-          to={'/Register'}
+          to={'/'}
           className="text-orange-500 cursor-pointer hover:underline">Don't have an account? Register now</Link>
         </div>
+        <ToastContainer />
       </div>
     </div>
   );
